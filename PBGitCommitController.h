@@ -21,6 +21,7 @@
 	IBOutlet NSArrayController *unstagedFilesController;
 	IBOutlet NSArrayController *cachedFilesController;
 	IBOutlet NSButton *commitButton;
+	IBOutlet NSButton *wtcButton;
 
 	IBOutlet PBGitIndexController *indexController;
 	IBOutlet PBWebChangesController *webController;
@@ -32,5 +33,6 @@
 - (IBAction) refresh:(id) sender;
 - (IBAction) commit:(id) sender;
 - (IBAction) forceCommit:(id) sender;
-- (IBAction)signOff:(id)sender;
+- (IBAction) signOff:(id)sender;
+- (IBAction) writeWTCMessage:(id) sender;
 @end
