@@ -73,6 +73,11 @@
 
 	[commitSplitView setHidden:YES];
 	[self performSelector:@selector(restoreCommitSplitViewPositiion) withObject:nil afterDelay:0];
+	
+	// WTC initialization
+	wtcResult = nil;
+	connectionWithWTC = nil;
+	
 }
 
 - (void)closeView
@@ -154,6 +159,46 @@
 	[index commitWithMessage:commitMessage andVerify:doVerify];
 }
 
+# pragma mark wthat the commit stuff
+-(IBAction) writeWTCMessage: (id) sender
+{
+	if(connectionWithWTC == nil)
+	{
+		[wtcButton setEnabled:NO];
+		wtcResult = [NSMutableData new];
+		connectionWithWTC = [NSURLConnection connectionWithRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://whatthecommit.com/index.txt"]] 
+														  delegate:self];
+	}
+	
+	
+}
+
+-(void)connection:(NSURLConnection*)connection didReceiveData:(NSData*)data
+{
+	[wtcResult appendData:data];
+}
+
+
+-(void)initializeWTCVariables
+{
+	[wtcResult release];
+	wtcResult = nil;
+	connectionWithWTC = nil;
+	[wtcButton setEnabled:YES];
+}
+
+-(void)connectionDidFinishLoading:(NSURLConnection *)connection
+{
+	[commitMessageView setString:[[NSString alloc] initWithData:wtcResult encoding:NSASCIIStringEncoding]];
+	[self initializeWTCVariables];
+}
+
+
+-(void)connection:(NSURLConnection *)connection didFailWithError:(NSError*)error
+{
+	[commitMessageView setString:[error localizedDescription]];
+	[self initializeWTCVariables];
+}
 
 # pragma mark PBGitIndex Notification handling
 - (void)refreshFinished:(NSNotification *)notification

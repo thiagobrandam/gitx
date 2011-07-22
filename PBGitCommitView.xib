@@ -528,7 +528,7 @@
 													</object>
 													<object class="NSButton" id="410313600">
 														<reference key="NSNextResponder" ref="154221104"/>
-														<int key="NSvFlags">268</int>
+														<int key="NSvFlags">289</int>
 														<string key="NSFrame">{{147, 0}, {96, 32}}</string>
 														<reference key="NSSuperview" ref="154221104"/>
 														<bool key="NSEnabled">YES</bool>
@@ -1430,7 +1430,7 @@
 				<object class="NSMutableArray" key="dict.values">
 					<bool key="EncodedWithXMLCoder">YES</bool>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{713, 459}, {852, 432}}</string>
+					<string>{{726, 524}, {852, 432}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<integer value="0"/>
 					<integer value="0"/>

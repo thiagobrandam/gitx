@@ -22,6 +22,8 @@
 	IBOutlet NSArrayController *cachedFilesController;
 	IBOutlet NSButton *commitButton;
 	IBOutlet NSButton *wtcButton;
+	NSMutableData *wtcResult;
+	NSURLConnection *connectionWithWTC;
 
 	IBOutlet PBGitIndexController *indexController;
 	IBOutlet PBWebChangesController *webController;
